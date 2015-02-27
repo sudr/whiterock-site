@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', function() {
-	$tests = App\TestModel::all();
+//Route::get('/', function() {
+	//$tests = App\TestModel::all();
 	// $tests = TestModel::all();
-	return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
-});
+	//return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
+//	return view('greeting', ['name' => 'James']);
+//});
+
+Route::get('/', 'GreetingController@greet');
 
 Route::get('home', function() {
 	return 'hello world home';
