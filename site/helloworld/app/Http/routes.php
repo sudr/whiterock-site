@@ -11,14 +11,20 @@
 |
 */
 
-//Route::get('/', function() {
-	//$tests = App\TestModel::all();
+Route::get('/', function() {
+	$tests = App\TestModel::all();
 	// $tests = TestModel::all();
-	//return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
-//	return view('greeting', ['name' => 'James']);
-//});
+	// return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
+	return response()->json($tests);
+});
 
-Route::get('/', 'GreetingController@greet');
+Route::get('/json', function() {
+	$tests = App\TestModel::all();
+	return 'hello world';
+	// return response()->json($tests);
+});
+
+Route::get('/greet', 'GreetingController@greet');
 
 Route::get('home', function() {
 	return 'hello world home';
