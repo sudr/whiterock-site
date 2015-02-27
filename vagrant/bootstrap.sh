@@ -10,3 +10,7 @@ fi
 if ! [ -L /usr/local/bin/composer]; then
 	ln -s /vagrant/composer.phar /usr/local/bin/composer
 fi
+
+/usr/local/bin/composer global require "laravel/installer=~1.1"
+
+php5enmod mcrypt
