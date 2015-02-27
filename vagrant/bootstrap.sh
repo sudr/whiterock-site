@@ -31,12 +31,12 @@ if ! [ -L /usr/local/bin/composer ]; then
 	ln -s /vagrant/composer.phar /usr/local/bin/composer
 fi
 
-/usr/local/bin/composer global require "laravel/installer=~1.1"
-/usr/local/bin/composer global require "facebook/php-sdk-v4=~4.0"
+su vagrant -c '/usr/local/bin/composer global require "laravel/installer=~1.1"'
+su vagrant -c '/usr/local/bin/composer global require "facebook/php-sdk-v4=~4.0"'
 
 php5enmod mcrypt
 
-/usr/bin/php /mnt/site/helloworld/artisan migrate
+su vagrant -c '/usr/bin/php /mnt/site/helloworld/artisan migrate'
 
 cp /vagrant/htaccess.conf /etc/apache2/conf-available/
 a2enconf htaccess
