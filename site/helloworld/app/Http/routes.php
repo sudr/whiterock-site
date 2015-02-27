@@ -24,7 +24,7 @@ Route::get('/json', function() {
 	// return response()->json($tests);
 });
 
-Route::get('/greet', 'GreetingController@greet');
+Route::controller('/greet', 'GreetingController');
 
 Route::get('home', function() {
 	return 'hello world home';

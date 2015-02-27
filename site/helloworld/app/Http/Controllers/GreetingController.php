@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 
 class GreetingController extends Controller {
 
-    public function greet()
+    public function getIndex()
     {
         return view('greeting', ['name' => 'Jason']);
     }
