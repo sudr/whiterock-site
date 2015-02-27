@@ -12,6 +12,7 @@ if [ ! -f /var/log/dbinstalled ];
 then
     echo "CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password'" | mysql -uroot -ppassword
     echo "CREATE DATABASE internal" | mysql -uroot -ppassword
+    echo "CREATE DATABASE helloworld" | mysql -uroot -ppassword
     echo "GRANT ALL ON internal.* TO 'mysqluser'@'localhost'" | mysql -uroot -ppassword
     echo "flush privileges" | mysql -uroot -ppassword
     touch /var/log/dbinstalled
@@ -31,9 +32,11 @@ if ! [ -L /usr/local/bin/composer ]; then
 fi
 
 /usr/local/bin/composer global require "laravel/installer=~1.1"
-/usr/local/bin/composer global require "facebook/php-sdk-v4" : "4.0.*"
+/usr/local/bin/composer global require "facebook/php-sdk-v4=~4.0"
 
 php5enmod mcrypt
+
+/usr/bin/php /mnt/site/helloworld/artisan migrate
 
 cp /vagrant/htaccess.conf /etc/apache2/conf-available/
 a2enconf htaccess
