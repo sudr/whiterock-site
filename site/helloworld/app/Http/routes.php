@@ -14,7 +14,7 @@
 Route::get('/', function() {
 	$tests = App\TestModel::all();
 	// $tests = TestModel::all();
-	return 'hello world: ' . print_r($tests, 1);
+	return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
 });
 
 Route::get('home', function() {
