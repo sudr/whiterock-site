@@ -40,5 +40,6 @@ php5enmod mcrypt
 
 cp /vagrant/htaccess.conf /etc/apache2/conf-available/
 a2enconf htaccess
+a2enmod rewrite
 
 service apache2 restart
