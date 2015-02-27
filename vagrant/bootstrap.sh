@@ -13,6 +13,7 @@ then
     echo "CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password'" | mysql -uroot -ppassword
     echo "CREATE DATABASE internal" | mysql -uroot -ppassword
     echo "CREATE DATABASE helloworld" | mysql -uroot -ppassword
+    echo "CREATE DATABASE admin_app" | mysql -uroot -ppassword
     echo "GRANT ALL ON internal.* TO 'mysqluser'@'localhost'" | mysql -uroot -ppassword
     echo "flush privileges" | mysql -uroot -ppassword
     touch /var/log/dbinstalled
@@ -37,6 +38,7 @@ su vagrant -c '/usr/local/bin/composer global require "facebook/php-sdk-v4=~4.0"
 php5enmod mcrypt
 
 su vagrant -c '/usr/bin/php /mnt/site/helloworld/artisan migrate'
+su vagrant -c '/usr/bin/php /mnt/site/app/artisan migrate'
 
 cp /vagrant/htaccess.conf /etc/apache2/conf-available/
 a2enconf htaccess
