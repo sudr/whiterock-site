@@ -14,7 +14,14 @@
 Route::get('/', function() {
 	$tests = App\TestModel::all();
 	// $tests = TestModel::all();
-	return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
+	// return 'hello world: <pre>' . print_r($tests, 1) . '</pre>';
+	return response()->json($tests);
+});
+
+Route::get('/json', function() {
+	$tests = App\TestModel::all();
+	return 'hello world';
+	// return response()->json($tests);
 });
 
 Route::get('home', function() {
