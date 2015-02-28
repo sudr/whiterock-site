@@ -31,6 +31,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                 	<li class="navbar-button">
+                        <a href="/app/public" ><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Home</a>
+                    </li>
                     <li class="navbar-button">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;&nbsp;About Us <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -45,7 +48,7 @@
                         </ul>
                     </li>
                     <li class="navbar-button">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Stay <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bed" aria-hidden="true"></span>&nbsp;&nbsp;Stay <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Bed and Breakfast</a></li>
                             <li><a href="#">Cottages</a></li>
@@ -84,10 +87,10 @@
                         </ul>
                     </li>
                     <li class="navbar-button">
-                        <a href="/app/public/" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact Us <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact Us <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Contact Info</a></li>
-                            <li><a href="report-issue">Report an Issue</a></li>
+                            <li><a href="/app/public/report-issue">Report an Issue</a></li>
                         </ul>
                     </li>
                 </ul>

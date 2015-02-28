@@ -12,13 +12,13 @@
 */
 
 Route::get('/', function() {
-	$results = DB::select('select * from users where id = ?', [1]);
-	return 'hello world';
+	return view('/whiterock');
 });
 
 Route::get('home', 'HomeController@index');
 
 Route::controller('manage/interests', 'Interest\ManageController');
+
 Route::controller('manage/issues', 'Issue\ManageController');
 
 Route::controller('/manage/trails', 'TrailStatusAdminController');
