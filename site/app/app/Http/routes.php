@@ -20,6 +20,8 @@ Route::get('home', 'HomeController@index');
 
 Route::controller('report-issue', 'ReportIssueController');
 
+Route::controller('/manage/trails', 'TrailStatusAdminController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
