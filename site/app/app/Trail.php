@@ -6,6 +6,7 @@ class Trail extends Model {
 
 	protected $table = 'trail';
 
-	public $name;
-	public $status;
+	protected $fillable = array('name', 'status');
+	// public $name;
+	// public $status;
 }

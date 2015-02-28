@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Validation\Validator;
+use Illuminate\Http\Request;
 use \App\Trail;
 
 class TrailStatusAdminController extends Controller {
@@ -25,6 +27,8 @@ class TrailStatusAdminController extends Controller {
 		// $trail = Trail::findOrFail($id);
 		$trail = new Trail();
 		$trail->id = $id;
+		$trail->name = 'Green';
+		$trail->status = 'Open';
 		return view('trail-status-admin/edit', ['trail' => $trail]);
 	}
 
@@ -36,7 +40,28 @@ class TrailStatusAdminController extends Controller {
 	 * @return Response
 	 */
 	public function postEdit(Request $request, $id) {
-		$url = action('App\Http\Controllers\TrailStatusAdminController@getIndex');
+		// $trail = Trail::findOrFail($id);
+		$trail = new Trail();
+		$trail->id = 1;
+		$trail->name = 'Green';
+		$trail->status = 'Open';
+		$data = $request->all();
+		$validator = app('Illuminate\Contracts\Validation\Factory')->make($data, [
+				'name' => 'required',
+				'status' => 'required'
+		]);
+		foreach (array('name', 'status') as $field) {
+			$trail->$field = $data[$field];
+		}
+		if (!$validator->fails()) {
+			// Save to db and redirect
+			echo 'saved';
+		}
+		echo '<pre>';
+		print_r($validator->errors());
+		print_r($data);
+		echo '</pre>';
+		return view('trail-status-admin/edit', ['trail' => $trail, 'data' => $data, 'errors' => $validator->errors()]);
 	}
 
 	public function getDelete($id) {
