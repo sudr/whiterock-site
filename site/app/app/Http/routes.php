@@ -19,9 +19,9 @@ Route::get('/', function() {
 Route::get('home', 'HomeController@index');
 
 Route::controller('report-issue', 'ReportIssueController');
+
 Route::controller('manage/interests', 'Interest\ManageController');
 Route::controller('manage/issues', 'Issue\ManageController');
-
 Route::controller('/manage/trails', 'TrailStatusAdminController');
 
 Route::controller('/json', 'JsonController');
