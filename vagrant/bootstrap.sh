@@ -11,6 +11,7 @@ sudo apt-get install -y mysql-client 2> /dev/null
 if [ ! -f /var/log/dbinstalled ];
 then
     echo "CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password'" | mysql -uroot -ppassword
+    echo "CREATE DATABASE whiterock" | mysql -uroot -ppassword
     echo "CREATE DATABASE internal" | mysql -uroot -ppassword
     echo "CREATE DATABASE helloworld" | mysql -uroot -ppassword
     echo "CREATE DATABASE admin_app" | mysql -uroot -ppassword
