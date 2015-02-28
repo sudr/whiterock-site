@@ -34,7 +34,7 @@
 		&nbsp&nbsp&nbsp&nbsp <input type="date" name="date" id="date" placeholder="mm/dd/yyyy" value="{{ $issue->date }}"> </label><br>
 	<hr>
 	<label style="vertical-align: top"> Location of
-		Incident&nbsp&nbsp&nbsp&nbsp<textarea name="location" id="location" placeholder="Issue Location" value="{{ $issue->location }}"></textarea> </label><br>
+		Incident&nbsp&nbsp&nbsp&nbsp<textarea name="location" id="location" value="{{ $issue->location }}"></textarea> </label><br>
 	<p>Please include as much detail as possible, such as building,
 		campground or trail name. Include nearest landmark or cross road.</p>
 	<hr>
