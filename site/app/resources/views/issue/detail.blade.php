@@ -22,16 +22,6 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Trail</label>
-							<div class="col-md-6 form-control-static">{{ $issue->trail_id}}</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Photo</label>
-							<div class="col-md-6 form-control-static">{{ $issue->photo_id}}</div>
-						</div>
-
-						<div class="form-group">
 							<label class="col-md-4 control-label">Name</label>
 							<div class="col-md-6 form-control-static">{{ $issue->name }}</div>
 						</div>
@@ -54,7 +44,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Assigned Date</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="assigned" placeholder="mm/dd/yyyy" value="{{ date("m/d/Y",strtotime($issue->assigned))}}">
+								<input type="text" class="form-control" name="assigned" placeholder="mm/dd/yyyy" value="{{ $issue->assigned ? date("m/d/Y",strtotime($issue->assigned)): ''}}">
 							</div>
 						</div>
 

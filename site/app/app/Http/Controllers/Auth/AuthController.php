@@ -35,4 +35,15 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	// overriding default behavior to not allow registration
+	public function getRegister()
+	{
+		return redirect('auth/login');
+	}
+
+	// overriding default behavior to not allow registration
+	public function postRegister()
+	{
+		return redirect('auth/login');
+	}
 }

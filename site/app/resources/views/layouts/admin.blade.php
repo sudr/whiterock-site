@@ -33,7 +33,6 @@
                   <li><a href="{{ url('/') }}">Home</a></li>
         					@if (Auth::guest())
         						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-        						<li><a href="{{ url('/auth/register') }}">Register</a></li>
         					@else
                     <li><a href="{{ url('/manage/trails') }}">Trails</a></li>
                     <li><a href="{{ url('/manage/issues') }}">Issues</a></li>
@@ -57,11 +56,13 @@
             <p>
                 &copy;
                 <script>document.write(new Date().getFullYear())</script> - Whiterock Conservancy<br />
+                <!-- 
                 <span class="visible-lg">Large</span>
                 <span class="visible-md">Medium</span>
                 <span class="visible-sm">Small</span>
                 <span class="visible-xs">Extra Small</span>
                 <span class="visible-print">Print</span>
+                 -->
             </p>
         </footer>
     </div>
