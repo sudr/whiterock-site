@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function() {
-	$results = DB::select('select * from users where id = ?', [1]);
-	return 'hello world';
+	return view('/whiterock');
 });
 
 Route::get('home', 'HomeController@index');
