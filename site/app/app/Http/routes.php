@@ -26,7 +26,7 @@ Route::controller('/manage/trails', 'TrailStatusAdminController');
 
 Route::controller('/json', 'JsonController');
 
-Route::controller('/maintenance', 'Issue\PublicController');
+Route::controller('/report-issue', 'Issue\PublicController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

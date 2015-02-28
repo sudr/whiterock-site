@@ -6,9 +6,9 @@ use App\Issue;
 
 class PublicController extends Controller {
 
-	public function getSubmit() {
+	public function getIndex() {
 		$issue = new Issue();
-		return view('issue/submit', ['issue' => $issue]);
+		return view('report-issue', ['issue' => $issue]);
 	}
 	
 	/**
@@ -24,15 +24,14 @@ class PublicController extends Controller {
 
 		$validator = app('Illuminate\Contracts\Validation\Factory')->make($data, [
 				'name' => 'required',
-				'phone' => 'required',
 				'email' => 'required|email',
-				'location' => 'required',
-				'comment' => 'required'
+				'date' => 'required',
+				'type' => 'required'
 		]);
 		
 		$errors = $validator->errors();
 
-		foreach ($issue->fillable as $field) {
+		foreach (array("name","phone","email","date","location","type","description") as $field) {
 			$issue->$field = $data[$field];
 		}
 		
@@ -41,7 +40,7 @@ class PublicController extends Controller {
 			return redirect(action('Issue\PublicController@getThanks'));
 		}
 		
-		return view('issue/submit', ['issue' => $issue, 'errors' => $errors]);
+		return view('report-issue', ['issue' => $issue, 'errors' => $errors]);
 	}
 	
 	public function getThanks() {

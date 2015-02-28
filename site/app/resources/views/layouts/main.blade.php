@@ -84,10 +84,10 @@
                         </ul>
                     </li>
                     <li class="navbar-button">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact Us <b class="caret"></b></a>
+                        <a href="/app/public/" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact Us <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Contact Info</a></li>
-                            <li><a href="/issue">Report an Issue</a></li>
+                            <li><a href="report-issue">Report an Issue</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -163,6 +163,7 @@
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/Scripts/respond.min.js"></script>
+    @yield('scripts', '')
 
 </body>
 </html>
