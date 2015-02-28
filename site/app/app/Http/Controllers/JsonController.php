@@ -6,6 +6,6 @@ class JsonController extends Controller {
 
 	public function getTrails() {
 		$trails = Trail::all();
-		return response()->json($trails);
+		return response()->json(array('trails' => $trails));
 	}
 }
