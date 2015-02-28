@@ -20,11 +20,11 @@
 			var items = [];
 			var conditionsElement = $("#trail-conditions table tbody");
 			$.each(data['trails'], function(index, val) {
-				var status = "success";
-				if (val.condition == 'closed'  || val.condition == 'Closed') {
+				var status = "warning";
+				if (/^closed/i.test(val.condition)) {
 					status = 'danger';
-				} else if (val.condition != 'Open' && val.condition != 'open') {
-					status = 'warning';
+				} else if (/^open/i.test(val.condition)) {
+					status = 'success';
 				}
 				conditionsElement.append("<tr class=\"" + status + "\"><td>" + val.name + "</td><td>" + val.condition + "</td></tr>");
 			});
