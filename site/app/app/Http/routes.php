@@ -19,6 +19,9 @@ Route::get('/', function() {
 Route::get('home', 'HomeController@index');
 
 Route::controller('report-issue', 'ReportIssueController');
+Route::get('manage/interest', 'Interest\ManageController@index');
+
+Route::controller('manage/issues', 'Issue\ManageController');
 
 Route::controller('/manage/trails', 'TrailStatusAdminController');
 
