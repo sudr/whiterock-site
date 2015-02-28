@@ -85,18 +85,18 @@ map = new google.maps.Map(mapElement, mapOptions);
 +'            "imageSrc": "http://whiterockconservancy.org/photos/13.jpg"}'
 +']}';
   jQuery.get('http://codepen.io/AutoPilot/pen/WbyKWL.js', function(jsondata) {
-   console.log(jsondata);   
+   console.log(jsondata);
     txt = jsondata;
   });
-  
+
   //$.getJSON("http://codepen.io/AutoPilot/pen/WbyKWL.js", function( json ) {console.log( "JSON Data: " + json);txt = json; });
-  
+
  //console.log(txt);
   //var jso = getJSON("static.json");
   var Obj = JSON.parse(txt);
 //console.log(Obj)
   placeJSONMarkers(Obj);
-    
+
   //MAKE KML LAYERS
 layers = [];
 layers[0] = new google.maps.KmlLayer({url: "http://www.whiterockconservancy.org/layers/TownLoopTrail.kmz"});
@@ -117,7 +117,7 @@ google.maps.event.addListener(map,'dblclick',function(event){
 
 map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
-$("#trailToggles").buttonset();   
+$("#trailToggles").buttonset();
 }
 
 function placeJSONMarkers(jObj){
@@ -132,19 +132,19 @@ function placeMarker(jsonObj){
   //pulls out just the filename to add the the icon path for image thumbnails
   var path = jsonObj.imageSrc;
   var parts = path.split('/');
-  var filename = parts[parts.length - 1]; 
-  
+  var filename = parts[parts.length - 1];
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(jsonObj.lat,jsonObj.long),
     map: map,
-    icon: "http://whiterockconservancy.org/icons/portrait.png" 
+    icon: "http://whiterockconservancy.org/icons/portrait.png"
   });
-  
+
   var contentString = "<div style=\"max-width:250px; word-wrap:break-word;\" id=\"mapImgCaption\">"+jsonObj.description+"</div><img width=250px src=\""+jsonObj.imageSrc+"\">";
-  
+
   var infowindow = new google.maps.InfoWindow({
       content: contentString
-  });  
+  });
    google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
   });
@@ -241,9 +241,10 @@ for (var key in trails){
   var c = type.color;
   console.log(type);
   var div = document.createElement('div');
-  div.style.backgroundColor = c;  
+  div.style.backgroundColor = c;
   div.style.textAlign = "center";
   div.style.padding = "3px";
+	div.style.textShadow = "0px 0px 32px #FFFFFF";
   div.innerHTML = name;
 	legend.appendChild(div);
 }
@@ -256,7 +257,3 @@ for (var key in trails){
           div.innerHTML = '<img src="' + icon + '"> ' + name;
           legend.appendChild(div);
         }
-
-
-
-
