@@ -18,6 +18,7 @@ Route::get('/', function() {
 Route::get('home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
+	Route::get('manage', function() { return view('manage-homepage'); });
 	Route::controller('manage/interests', 'Interest\ManageController');
 	Route::controller('manage/issues', 'Issue\ManageController');
 	Route::controller('/manage/trails', 'TrailStatusAdminController');

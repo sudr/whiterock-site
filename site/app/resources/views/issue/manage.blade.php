@@ -4,7 +4,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-  <h2>Issues</h2>
+  <h3>Issues</h3>
   <div>
   @if (strpos(basename($_SERVER['REQUEST_URI']), 'all=1') !== FALSE)
     <a href="{{ action('Issue\ManageController@getIndex', ['sort' => Request::input('sort'), 'order' => Request::input('order')]) }}">Show Unresolved Issues</a>
@@ -20,6 +20,13 @@
         <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'status', 'order' => Request::input('order') === 'desc' ? 'asc': 'desc', 'all' => Request::input('all')]) }}">Status</a>
         @else
         <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'status', 'order' => 'asc', 'all' => Request::input('all')]) }}">Status</a>
+        @endif
+      </th>
+      <th>
+        @if (Request::input('sort') && Request::input('sort') == 'type')
+        <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'type', 'order' => Request::input('order') === 'desc' ? 'asc': 'desc', 'all' => Request::input('all')]) }}">Type</a>
+        @else
+        <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'type', 'order' => 'asc', 'all' => Request::input('all')]) }}">Type</a>
         @endif
       </th>
       <th>
@@ -61,6 +68,7 @@
   @foreach ($issues as $issue)
     <tr>
       <td>{{ $issue->status }}</td>
+			<td>{{ $issue->type }}</td>
       <td>{{ $issue->assigned ? date("Y-m-d",strtotime($issue->assigned)): ''}}</td>
       <td>{{ $issue->comment }}</td>
       <td>{{ $issue->priority }}</td>
