@@ -20,6 +20,20 @@ class ManageController extends Controller {
 		return view('issue/manage', ['issues' => $issue->get()]);
 	}
 
+	public function getMarkCompleted($id) {
+		$issue = Issue::find($id);
+		$issue->resolved = time();
+		$issue->save();
+		return redirect('manage/issues');
+	}
+
+	public function getReopen($id) {
+		$issue = Issue::find($id);
+		$issue->resolved = null;
+		$issue->save();
+		return redirect('manage/issues');
+	}
+
 	public function getDetail($id) {
 		return view('issue/detail', ['issue' => Issue::find($id)]);
 	}

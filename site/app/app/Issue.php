@@ -8,5 +8,5 @@ class Issue extends Model {
 
     protected $fillable = ['name', 'email', 'phone', 'assigned',
       'location', 'type', 'status', 'priority', 'assigned_to',
-      'comment', 'resolved', 'trailId', 'photoId'];
+      'comment', 'description', 'resolved', 'trailId', 'photoId'];
 }

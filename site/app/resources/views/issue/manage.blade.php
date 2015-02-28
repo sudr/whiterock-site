@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('app')
 
 @section('content')
   <h3>list of issues</h3>

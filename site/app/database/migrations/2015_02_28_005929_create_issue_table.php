@@ -25,7 +25,8 @@ class CreateIssueTable extends Migration {
 			$table->text('priority');
 			$table->text('assigned_to');
 			$table->text('comment');
-			$table->dateTime('resolved');
+			$table->text('description');
+			$table->dateTime('resolved')->nullable();
 			$table->integer('trail_id');
 			$table->integer('photo_id');
 			$table->timestamps();
