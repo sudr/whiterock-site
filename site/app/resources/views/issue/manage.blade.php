@@ -11,9 +11,9 @@
   <h2>Issues</h2>
   <div>
   @if (strpos(basename($_SERVER['REQUEST_URI']), 'all=1') !== FALSE)
-    <a href="{{ action('Issue\ManageController@getIndex') }}">Show Unresolved Issues</a>
+    <a href="{{ action('Issue\ManageController@getIndex', ['sort' => Request::input('sort'), 'order' => Request::input('order')]) }}">Show Unresolved Issues</a>
   @else
-    <a href="{{ action('Issue\ManageController@getIndex', ['all' => 1]) }}">Show All Issues</a>
+    <a href="{{ action('Issue\ManageController@getIndex', ['all' => 1, 'sort' => Request::input('sort'), 'order' => Request::input('order')]) }}">Show All Issues</a>
   @endif
   </div>
 
