@@ -37,7 +37,7 @@ class ManageController extends Controller {
 		$issue->priority = $request->get('priority');
 		$issue->assigned_to = $request->get('assigned_to');
 		$issue->comment = $request->get('comment');
-		$issue->assigned = $request->get('assigned');
+		$issue->assigned = date('Y-m-d', strtotime($request->get('assigned')));
 		$issue->save();
 		return redirect('manage/issues');
 	}
