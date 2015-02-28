@@ -18,7 +18,7 @@ class CreateIssueTable extends Migration {
 			$table->text('name');
 			$table->text('email');
 			$table->text('phone');
-			$table->dateTime('assigned');
+			$table->dateTime('assigned')->nullable();
 			$table->text('location');
 			$table->text('type');
 			$table->text('status');

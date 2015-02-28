@@ -54,7 +54,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Assigned Date</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="assigned" placeholder="mm/dd/yyyy" value="{{ date("m/d/Y",strtotime($issue->assigned))}}">
+								<input type="text" class="form-control" name="assigned" placeholder="mm/dd/yyyy" value="{{ $issue->assigned ? date("m/d/Y",strtotime($issue->assigned)): ''}}">
 							</div>
 						</div>
 
