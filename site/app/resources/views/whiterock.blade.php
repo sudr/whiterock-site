@@ -8,15 +8,39 @@
 
                <div id="mapDiv"></div>
 
+
                <div id="legend" ></div>
            </div>
 
            <div class="col-sm-2">
-               <h3>Trail Conditions</h3>
-               <hr />
-               Trail 1 - Dry<br />
-               Trail 2 - Wet<br />
-               Trail 3 - Dry<br />
+		<div id="trail-conditions">
+			<h4>Trail Status</h4>
+			<table class="table table-bordered">
+				<tbody>
+				</tbody>
+			</table>
+		</div>
            </div>
        </div>
+@stop
+
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.getJSON("/app/public/json/trails", function( data ) {
+		// $.getJSON("/Content/json/trails.json", function( data ) {
+			var items = [];
+			var conditionsElement = $("#trail-conditions table tbody");
+			$.each(data['trails'], function(index, val) {
+				var status = "warning";
+				if (/^closed/i.test(val.condition)) {
+					status = 'danger';
+				} else if (/^open/i.test(val.condition)) {
+					status = 'success';
+				}
+				conditionsElement.append("<tr class=\"" + status + "\"><td>" + val.name + "</td><td>" + val.condition + "</td></tr>");
+			});
+		});
+	});
+</script>
 @stop
