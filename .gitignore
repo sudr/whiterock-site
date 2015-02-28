@@ -1,2 +1,5 @@
 vagrant/.vagrant
 *.swp
+.buildpath
+.project
+.settings
