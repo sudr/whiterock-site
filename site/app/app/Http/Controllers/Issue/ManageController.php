@@ -22,7 +22,7 @@ class ManageController extends Controller {
 
 	public function getMarkCompleted($id) {
 		$issue = Issue::find($id);
-		$issue->resolved = time();
+		$issue->resolved = date("Y-m-d H:i:s");
 		$issue->save();
 		return redirect('manage/issues');
 	}
