@@ -30,6 +30,9 @@ class TrailStatusAdminController extends Controller {
 	 * @return Response
 	 */
 	public function postEdit(Request $request, $id = null) {
+		if ($request->input('cancel')) {
+			return redirect(action('TrailStatusAdminController@getIndex'));
+		}
 		$trail = Trail::findOrNew($id);
 		$data = $request->all();
 		$validator = app('Illuminate\Contracts\Validation\Factory')->make($data, [
@@ -47,10 +50,12 @@ class TrailStatusAdminController extends Controller {
 			$trail->save();
 			return redirect(action('TrailStatusAdminController@getIndex'));
 		}
+		/*
 		echo '<pre>';
 		print_r($validator->errors());
 		print_r($data);
 		echo '</pre>';
+		*/
 		return view('trail-status-admin/edit', ['trail' => $trail, 'errors' => $validator->errors()]);
 	}
 
@@ -68,7 +73,7 @@ class TrailStatusAdminController extends Controller {
 	public function postDelete(Request $request, $id) {
 		$trail = Trail::findOrFail($id);
 		$data = $request->all();
-		var_dump($data);
+		// var_dump($data);
 		if ($request->input('yes')) {
 			$trail->delete();
 		}

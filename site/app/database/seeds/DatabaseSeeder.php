@@ -32,7 +32,10 @@ class DatabaseSeeder extends Seeder {
 				'comment' => 'Random comment',
 				'priority' => 'Low',
 				'assigned_to' => 'bsolo',
-				'description' => 'i saw a tree down'
+				'description' => 'i saw a tree down',
+				'phone' => '515-225-0001',
+				'type' => 'trail issue',
+				'location' => 'my campground'
 			]);
 			Issue::create([
 				'name' => 'Jane Doe',
