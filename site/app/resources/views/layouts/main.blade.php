@@ -154,11 +154,13 @@
             <p>
                 &copy;
                 <script>document.write(new Date().getFullYear())</script> - Whiterock Conservancy<br />
+                <!-- 
                 <span class="visible-lg">Large</span>
                 <span class="visible-md">Medium</span>
                 <span class="visible-sm">Small</span>
                 <span class="visible-xs">Extra Small</span>
                 <span class="visible-print">Print</span>
+				 -->
             </p>
         </footer>
     </div>
