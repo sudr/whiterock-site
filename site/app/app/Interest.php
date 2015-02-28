@@ -20,6 +20,6 @@ class Interest extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email'];
+	protected $fillable = ['name', 'email', 'phone', 'date', 'created', 'location', 'removed', 'trail_id', 'photo_id'];
 
 }

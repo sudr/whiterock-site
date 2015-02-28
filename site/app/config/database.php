@@ -59,7 +59,7 @@ return [
 			// 'username'  => env('DB_USERNAME', 'root'),
 			// 'password'  => env('DB_PASSWORD', 'password'),
 			'host'      => 'localhost',
-			'database'  => 'admin_app',
+			'database'  => 'whiterock',
 			'username'  => 'root',
 			'password'  => 'password',
 			'charset'   => 'utf8',
