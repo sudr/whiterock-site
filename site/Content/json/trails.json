@@ -1,4 +1,4 @@
-{"Trails":[
+{"trails":[
   {"id":"1",
     "name":"Single Track Mountain Bike",
     "type":"biking",
@@ -22,7 +22,7 @@
     "difficulty":"green",
     "length":"12",
     "created":"2015-02-28 00:01:00",
-    "updated_at":"2015-02-28 00:01:00"}
+    "updated_at":"2015-02-28 00:01:00"},
   {"id":"4",
     "name":"Town Loop Crushed Aggregate",
     "type":"multi",
