@@ -163,6 +163,7 @@
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/Scripts/respond.min.js"></script>
+    @yield('scripts', '')
 
 </body>
 </html>

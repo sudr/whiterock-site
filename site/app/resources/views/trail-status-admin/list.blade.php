@@ -3,11 +3,11 @@
 @section('content')
   <h3>Trail Management</h3>
   <a href="{{ action('TrailStatusAdminController@getCreate') }}">Create a new Trail</a>
-  <table class="table">
+  <table class="table table-striped">
 	<thead>
 		  <tr><th>Name</th><th>Type</th><th>Condition</th><th>Difficulty</th><th>Length</th><th>Actions</th></tr>
   	</thead>
-  	<tbody class="table-striped">
+  	<tbody>
   	@foreach ($trails as $trail)
   		<tr>
   			<td>{{ $trail->name }}</td>
