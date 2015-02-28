@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Issue;
+use App\User;
 
 class DatabaseSeeder extends Seeder {
 
@@ -13,6 +14,7 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('IssueTableSeeder');
 
 		DB::table('issue')->delete();
+		DB::table('users')->delete();
 
 			Issue::create([
 				'name' => 'John Doe',
@@ -45,6 +47,11 @@ class DatabaseSeeder extends Seeder {
 				'comment' => 'Random comment',
 				'priority' => 'Low',
 				'assigned_to' => 'bsolo'
+			]);
+			User::create([
+				'name' => 'Jane Doe',
+				'email' => 'foo@bar.com',
+				'password' => Hash::make('password')
 			]);
 	}
 

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
 @section('content')
   <h3>Trail Edit: {{ $trail->name }}</h3>
@@ -23,7 +23,7 @@
   			<label for="length">Length</label>
   			<input class="form-control" type="text" name="length" id="length" placeholder="Trail Length" value="{{ $trail->length }}"/>
   		</div>
-  		
+
   		<button type="submit" id="submit" name="submit" value="submit" class="btn btn-default">Submit</button>
   		<button type="submit" id="cancel" name="cancel" value="cancel" class="btn btn-warning">Cancel</button>
   		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

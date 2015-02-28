@@ -1,10 +1,6 @@
-@extends('layouts/main')
+@extends('layouts/admin')
 
 @section('content')
-<style type="text/css">
-  .inactive {color:#eeeeee;}
-</style>
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">

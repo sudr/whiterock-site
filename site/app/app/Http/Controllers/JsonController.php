@@ -8,4 +8,8 @@ class JsonController extends Controller {
 		$trails = Trail::all();
 		return response()->json(array('trails' => $trails));
 	}
+	
+	public function getTest() {
+		return view('test-homepage');
+	}
 }
