@@ -22,6 +22,11 @@
 		</div>
            </div>
        </div>
+       <div class="row">
+       
+       <a class="glyphicon glyphicon-download-alt" href="http://whiterockconservancy.org/documents/BackcountryTrailRouteMap2012.pdf" >Download Map</a>
+      
+       </div>
 @stop
 
 @section('scripts')
