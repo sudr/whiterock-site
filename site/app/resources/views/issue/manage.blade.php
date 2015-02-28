@@ -61,7 +61,7 @@
   @foreach ($issues as $issue)
     <tr>
       <td>{{ $issue->status }}</td>
-      <td>{{ date("Y-m-d",strtotime($issue->assigned))}}</td>
+      <td>{{ $issue->assigned ? date("Y-m-d",strtotime($issue->assigned)): ''}}</td>
       <td>{{ $issue->comment }}</td>
       <td>{{ $issue->priority }}</td>
       <td>{{ $issue->resolved ? date("Y-m-d",strtotime($issue->resolved)) : ''}}</td>
