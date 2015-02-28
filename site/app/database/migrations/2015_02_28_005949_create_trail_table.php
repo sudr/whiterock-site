@@ -20,6 +20,7 @@ class CreateTrailTable extends Migration {
 			$table->text('condition');
 			$table->text('difficulty');
 			$table->integer('length');
+			$table->timestamps();
 		});
 	}
 

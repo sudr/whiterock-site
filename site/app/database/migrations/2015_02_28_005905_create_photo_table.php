@@ -23,6 +23,7 @@ class CreatePhotoTable extends Migration {
 			$table->tinyInteger('public');
 			$table->tinyInteger('push_to_facebook');
 			$table->dateTime('removed');
+			$table->timestamps();
 		});
 	}
 
