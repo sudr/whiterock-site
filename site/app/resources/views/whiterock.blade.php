@@ -1,18 +1,16 @@
 @extends('layouts.main') @section('content')
 <h3>This is Home!</h3>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-10">
-		</div>
-		<div class="col-md-2">
-			<div id="trail-conditions">
-				<h4>Trail Status</h4>
-				<table class="table table-bordered">
-					<tbody>
-					</tbody>
-				</table>
-			</div>
+<div class="row">
+	<div class="col-md-10">
+	</div>
+	<div class="col-md-2">
+		<div id="trail-conditions">
+			<h4>Trail Status</h4>
+			<table class="table table-bordered">
+				<tbody>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
