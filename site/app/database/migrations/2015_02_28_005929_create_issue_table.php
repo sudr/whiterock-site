@@ -29,6 +29,7 @@ class CreateIssueTable extends Migration {
 			$table->dateTime('resolved')->nullable();
 			$table->integer('trail_id');
 			$table->integer('photo_id');
+			$table->dateTime('date');
 			$table->timestamps();
 		});
 	}

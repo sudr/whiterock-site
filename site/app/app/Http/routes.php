@@ -18,7 +18,6 @@ Route::get('/', function() {
 
 Route::get('home', 'HomeController@index');
 
-Route::controller('report-issue', 'ReportIssueController');
 Route::controller('manage/interests', 'Interest\ManageController');
 Route::controller('manage/issues', 'Issue\ManageController');
 
@@ -26,7 +25,7 @@ Route::controller('/manage/trails', 'TrailStatusAdminController');
 
 Route::controller('/json', 'JsonController');
 
-Route::controller('/maintenance', 'Issue\PublicController');
+Route::controller('/report-issue', 'Issue\PublicController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
