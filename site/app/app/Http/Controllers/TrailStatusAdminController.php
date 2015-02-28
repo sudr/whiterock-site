@@ -7,68 +7,72 @@ use \App\Trail;
 class TrailStatusAdminController extends Controller {
 
 	public function getIndex() {
-		// $trails = Trail::all();
-		$trails = array();
-		$trail = new Trail();
-		$trail->id = 1;
-		$trail->name = 'Green';
-		$trail->status = 'Open';
-		$trails[0] = $trail;
-		$trail = new Trail();
-		$trail->id = 2;
-		$trail->name = 'Blue';
-		$trail->status = 'Closed';
-		$trails[1] = $trail;
+		$trails = Trail::all();
 
 		return view('trail-status-admin/list', ['trails' => $trails]);
 	}
+	
+	public function getCreate() {
+		$trail = new Trail();	
+		return view('trail-status-admin/edit', ['trail' => $trail]);
+	}
 
 	public function getEdit($id) {
-		// $trail = Trail::findOrFail($id);
-		$trail = new Trail();
-		$trail->id = $id;
-		$trail->name = 'Green';
-		$trail->status = 'Open';
+		$trail = Trail::findOrNew($id);
 		return view('trail-status-admin/edit', ['trail' => $trail]);
 	}
 
 	/**
-	 * Store a new user.
+	 * Edit a trail
 	 *
 	 * @param  Request  $request
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit(Request $request, $id) {
-		// $trail = Trail::findOrFail($id);
-		$trail = new Trail();
-		$trail->id = 1;
-		$trail->name = 'Green';
-		$trail->status = 'Open';
+	public function postEdit(Request $request, $id = null) {
+		$trail = Trail::findOrNew($id);
 		$data = $request->all();
 		$validator = app('Illuminate\Contracts\Validation\Factory')->make($data, [
 				'name' => 'required',
-				'status' => 'required'
+				'type' => 'required',
+				'condition' => 'required',
+				'difficulty' => 'required',
+				'length' => 'required'
 		]);
-		foreach (array('name', 'status') as $field) {
+		foreach ($trail->fillable as $field) {
 			$trail->$field = $data[$field];
 		}
 		if (!$validator->fails()) {
 			// Save to db and redirect
-			echo 'saved';
+			$trail->save();
+			return redirect(action('TrailStatusAdminController@getIndex'));
 		}
 		echo '<pre>';
 		print_r($validator->errors());
 		print_r($data);
 		echo '</pre>';
-		return view('trail-status-admin/edit', ['trail' => $trail, 'data' => $data, 'errors' => $validator->errors()]);
+		return view('trail-status-admin/edit', ['trail' => $trail, 'errors' => $validator->errors()]);
 	}
 
 	public function getDelete($id) {
 		return view('trail-status-admin/delete', ['trail' => Trail::findOrFail($id)]);
 	}
 
-	public function postDelete($id) {
-		$url = action('App\Http\Controllers\TrailStatusAdminController@getIndex');
+	/**
+	 * Delete a trail
+	 *
+	 * @param  Request  $request
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function postDelete(Request $request, $id) {
+		$trail = Trail::findOrFail($id);
+		$data = $request->all();
+		var_dump($data);
+		if ($request->input('yes')) {
+			$trail->delete();
+		}
+
+		return redirect(action('TrailStatusAdminController@getIndex'));
 	}
 }
