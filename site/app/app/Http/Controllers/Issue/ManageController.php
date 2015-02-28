@@ -2,20 +2,17 @@
 
 use App\Http\Controllers\Controller;
 use App\Issue;
-use Input;
-use Request;
+use Illuminate\Http\Request;
 
 class ManageController extends Controller {
 
-	public function getIndex() {
+	public function getIndex(Request $request) {
 		$issue = Issue::query();
-
-		// var_dump(Request::all());
-		if(!Request::has('all')) {
+		if(!$request->has('all')) {
     	$issue = $issue->whereNull('resolved');
 		}
-		if(Request::has('sort') && Request::has('order')) {
-    	$issue = $issue->orderBy(Request::get('sort'), Request::get('order'));
+		if($request->has('sort') && $request->has('order')) {
+    	$issue = $issue->orderBy($request->query('sort'), $request->query('order'));
 		}
 		return view('issue/manage', ['issues' => $issue->get()]);
 	}
@@ -30,6 +27,17 @@ class ManageController extends Controller {
 	public function getReopen($id) {
 		$issue = Issue::find($id);
 		$issue->resolved = null;
+		$issue->save();
+		return redirect('manage/issues');
+	}
+
+	public function postEdit(Request $request, $id) {
+		$issue = Issue::find($id);
+		$issue->status = $request->get('status');
+		$issue->priority = $request->get('priority');
+		$issue->assigned_to = $request->get('assigned_to');
+		$issue->comment = $request->get('comment');
+		$issue->assigned = date('Y-m-d', strtotime($request->get('assigned')));
 		$issue->save();
 		return redirect('manage/issues');
 	}
