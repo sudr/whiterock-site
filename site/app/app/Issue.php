@@ -3,10 +3,10 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Issue extends Model {
-    public $status;
-    public $assignedDate;
-    public $comments;
-    public $priority;
-    public $closedDate;
-    public $assignee;
+
+    protected $table = 'issue';
+
+    protected $fillable = ['name', 'email', 'phone', 'assigned',
+      'location', 'type', 'status', 'priority', 'assigned_to',
+      'comment', 'resolved', 'trailId', 'photoId'];
 }
