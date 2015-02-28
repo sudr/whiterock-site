@@ -22,6 +22,12 @@ Route::controller('report-issue', 'ReportIssueController');
 Route::controller('manage/interests', 'Interest\ManageController');
 Route::controller('manage/issues', 'Issue\ManageController');
 
+Route::controller('/manage/trails', 'TrailStatusAdminController');
+
+Route::controller('/json', 'JsonController');
+
+Route::controller('/maintenance', 'Issue\PublicController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
