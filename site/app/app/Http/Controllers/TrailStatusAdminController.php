@@ -21,7 +21,7 @@ class TrailStatusAdminController extends Controller {
 		$trail = Trail::findOrNew($id);
 		return view('trail-status-admin/edit', ['trail' => $trail]);
 	}
-
+	
 	/**
 	 * Edit a trail
 	 *

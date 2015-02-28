@@ -2,7 +2,7 @@
 
 use \App\Trail;
 
-class TrailStatusAdminController extends Controller {
+class JsonController extends Controller {
 
 	public function getTrails() {
 		$trails = Trail::all();
