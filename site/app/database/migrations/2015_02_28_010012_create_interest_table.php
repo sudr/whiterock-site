@@ -24,6 +24,7 @@ class CreateInterestTable extends Migration {
 			$table->dateTime('removed');
 			$table->integer('trail_id');
 			$table->integer('photo_id');
+			$table->timestamps();
 		});
 	}
 
