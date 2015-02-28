@@ -4,7 +4,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-  <h2>Issues</h2>
+  <h3>Issues</h3>
   <div>
   @if (strpos(basename($_SERVER['REQUEST_URI']), 'all=1') !== FALSE)
     <a href="{{ action('Issue\ManageController@getIndex', ['sort' => Request::input('sort'), 'order' => Request::input('order')]) }}">Show Unresolved Issues</a>
