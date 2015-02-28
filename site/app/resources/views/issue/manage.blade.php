@@ -23,6 +23,13 @@
         @endif
       </th>
       <th>
+        @if (Request::input('sort') && Request::input('sort') == 'type')
+        <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'type', 'order' => Request::input('order') === 'desc' ? 'asc': 'desc', 'all' => Request::input('all')]) }}">Type</a>
+        @else
+        <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'type', 'order' => 'asc', 'all' => Request::input('all')]) }}">Type</a>
+        @endif
+      </th>
+      <th>
         @if (Request::input('sort') && Request::input('sort') == 'assigned')
         <a href="{{ action('Issue\ManageController@getIndex', ['sort' => 'assigned', 'order' => Request::input('order') === 'desc' ? 'asc': 'desc', 'all' => Request::input('all')]) }}">Assigned Date</a>
         @else
@@ -61,6 +68,7 @@
   @foreach ($issues as $issue)
     <tr>
       <td>{{ $issue->status }}</td>
+			<td>{{ $issue->type }}</td>
       <td>{{ $issue->assigned ? date("Y-m-d",strtotime($issue->assigned)): ''}}</td>
       <td>{{ $issue->comment }}</td>
       <td>{{ $issue->priority }}</td>
