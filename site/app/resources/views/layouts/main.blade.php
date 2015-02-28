@@ -80,7 +80,7 @@
                         </ul>
                     </li>
                     <li class="navbar-button">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>&nbsp;&nbsp;Get Involved <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>&nbsp;&nbsp;Get Involved <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Donate</a></li>
                             <li><a href="#">Volunteer</a></li>
