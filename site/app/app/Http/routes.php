@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function() {
+	$results = DB::select('select * from users where id = ?', [1]);
+	return 'hello world';
+});
 
 Route::get('home', 'HomeController@index');
+
+Route::controller('report-issue', 'ReportIssueController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
