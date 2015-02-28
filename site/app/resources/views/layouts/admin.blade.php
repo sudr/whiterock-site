@@ -33,7 +33,6 @@
                   <li><a href="{{ url('/') }}">Home</a></li>
         					@if (Auth::guest())
         						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-        						<li><a href="{{ url('/auth/register') }}">Register</a></li>
         					@else
                     <li><a href="{{ url('/manage/trails') }}">Trails</a></li>
                     <li><a href="{{ url('/manage/issues') }}">Issues</a></li>
