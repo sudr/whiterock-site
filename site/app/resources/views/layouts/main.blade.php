@@ -167,10 +167,10 @@
     </div>
 
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/Scripts/respond.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDie9_WHR3dcwzfgEi5fVR-AM1URxManHc&sensor=false"></script>
-    <script src="/Scripts/interactive-map.js"></script>
     @yield('scripts', '')
 
 </body>
