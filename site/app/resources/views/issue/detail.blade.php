@@ -1,6 +1,32 @@
 @extends('app')
 
 @section('content')
+
+<p>
+	{{$issue->resolved}}
+	<a href="{{ action('Issue\ManageController@getIndex') }}">List</a>
+@if ($issue->resolved)
+	<a href="{{ action('Issue\ManageController@getReopen', ['id' => $issue->id]) }}">Reopen</a>
+@endif
+@if (!$issue->resolved)
+	<a href="{{ action('Issue\ManageController@getMarkCompleted', ['id' => $issue->id]) }}">Completed</a>
+@endif
+
+<div>Name: {{ $issue->name}}</div>
+<div>Email: {{ $issue->email}}</div>
+<div>Phone: {{ $issue->phone}}</div>
+updatable!!!<div>Assigned On: {{ $issue->assigned}}</div>
+<div>Location: {{ $issue->location}}</div>
+<div>Type: {{ $issue->type}}</div>
+updatable!!!<div>Status: {{ $issue->status}}</div>
+updatable!!!<div>Priority: {{ $issue->priority}}</div>
+updatable!!!<div>Assigned To: {{ $issue->assigned_to}}</div>
+updatable!!!<div>Comments: {{ $issue->comment}}</div>
+<div>Resolved On: {{ $issue->resolved}}</div>
+<div>Trail: {{ $issue->trail_id}}</div>
+<div>Photo: {{ $issue->photo_id}}</div>
+<div>Description: {{ $issue->description}}</div>
+</p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
